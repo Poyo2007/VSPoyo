@@ -168,7 +168,7 @@ class FlxVirtualPad extends FlxSpriteGroup
 
 	public static function getFrames():FlxAtlasFrames
 	{
-		return Paths.getSparrowAtlas('androidcontrols/virtualpad');
+		return Paths.getSparrowAtlas('android/virtualpad');
 	}
 
 	override public function destroy():Void
