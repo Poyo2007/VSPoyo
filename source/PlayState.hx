@@ -249,8 +249,8 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 	
-	public var songCreator:String = "Unknown"
-	public var chartCreator:String = "Unknown"
+	public var songCreator:String = "Unknown";
+	public var chartCreator:String = "Unknown";
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
