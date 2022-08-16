@@ -581,21 +581,6 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf';
 			}
 
-			switch(Paths.formatToSongPath(SONG.song))
-			{
-				case 'summer-sunset':
-					songCreator = 'shekkai47 & AlmondsDemo';
-				    chartCreator = 'kyson';
-				case 'energizer':
-					songCreator = 'AlmondsDemo';
-				    chartCreator = 'AlmondsDemo';
-				case 'epic':
-					songCreator = 'shekkai47';
-				    chartCreator = 'sebbo';
-				case 'epic-legacy':
-					songCreator = 'Nafri';
-				    chartCreator = 'Hexocus';
-			}
 			SONG.gfVersion = gfVersion; //Fix for the Chart Editor
 		}
 
@@ -831,7 +816,7 @@ class PlayState extends MusicBeatState
 		healthBarBG.y = FlxG.height * 0.89;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
-		//healthBarBG.visible = !ClientPrefs.hideHud;
+		healthBarBG.visible = !ClientPrefs.hideHud;
 		healthBarBG.xAdd = -4;
 		healthBarBG.yAdd = -4;
 		add(healthBarBG);
@@ -841,7 +826,7 @@ class PlayState extends MusicBeatState
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		// healthBar
-		//healthBar.visible = !ClientPrefs.hideHud;
+		healthBar.visible = !ClientPrefs.hideHud;
 		healthBar.alpha = ClientPrefs.healthBarAlpha;
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
@@ -932,6 +917,21 @@ class PlayState extends MusicBeatState
 		#end
 
 		var daSong:String = Paths.formatToSongPath(curSong);
+		switch(daSong)
+		{
+		    case 'summer-sunset':
+					songCreator = 'shekkai47 & AlmondsDemo';
+				    chartCreator = 'kyson';
+				case 'energizer':
+					songCreator = 'AlmondsDemo';
+				    chartCreator = 'AlmondsDemo';
+				case 'epic':
+					songCreator = 'shekkai47';
+				    chartCreator = 'sebbo';
+				case 'epic-legacy':
+					songCreator = 'Nafri';
+				    chartCreator = 'Hexocus';
+		}
 		if (isStoryMode && !seenCutscene)
 		{
 			switch (daSong)
