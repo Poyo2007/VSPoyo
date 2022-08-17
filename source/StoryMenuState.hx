@@ -107,8 +107,8 @@ class StoryMenuState extends MusicBeatState
 				weekThing.targetY = num;
 				grpWeekText.add(weekThing);
 
-				weekThing.screenCenter(X)
-				weekThing.x += 750
+				weekThing.screenCenter(X);
+				weekThing.x += 750;
 				weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 				// weekThing.updateHitbox();
 
