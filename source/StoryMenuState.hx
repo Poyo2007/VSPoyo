@@ -146,7 +146,7 @@ class StoryMenuState extends MusicBeatState
 		leftArrow.animation.play('idle');
 		leftArrow.antialiasing = ClientPrefs.globalAntialiasing;
 		difficultySelectors.add(leftArrow);
-		leftArrow.visible = false
+		leftArrow.visible = false;
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 		if(lastDifficultyName == '')
@@ -158,7 +158,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty = new FlxSprite(0, leftArrow.y);
 		sprDifficulty.antialiasing = ClientPrefs.globalAntialiasing;
 		difficultySelectors.add(sprDifficulty);
-		sprDifficulty.visible = false:
+		sprDifficulty.visible = false;
 
 		rightArrow = new FlxSprite(leftArrow.x + 376, leftArrow.y);
 		rightArrow.frames = ui_tex;
@@ -167,7 +167,7 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.animation.play('idle');
 		rightArrow.antialiasing = ClientPrefs.globalAntialiasing;
 		difficultySelectors.add(rightArrow);
-		rightArrow.visible = false
+		rightArrow.visible = false;
 
 		add(bgYellow);
 		add(bgSprite);
