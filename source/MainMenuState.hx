@@ -46,6 +46,9 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+	    Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+
 	    // timed??
         CoolUtil.difficulties = CoolUtil.defaultDifficulties;
 
