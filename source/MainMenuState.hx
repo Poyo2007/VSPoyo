@@ -46,6 +46,13 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+	    // timed??
+        CoolUtil.difficulties = CoolUtil.defaultDifficulties;
+
+        // bruh
+        if (!WeekData.weeksLoaded.keys().hasNext())
+            WeekData.reloadWeekFiles();
+
 		WeekData.loadTheFirstEnabledMod();
 
 		#if desktop
@@ -128,7 +135,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "FNF: VS POYO W1C DX (v1.5)", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -178,6 +185,8 @@ class MainMenuState extends MusicBeatState
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
+        var touch:Bool = false;
+
 		if (!selectedSomethin)
 		{
 			if (controls.UI_UP_P)
@@ -191,6 +200,21 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
 			}
+			
+			#if mobile
+			menuItems.forEach(function(spr:FlxSprite)
+			{
+				if (FlxG.touches.justStarted().length > 0)
+				{
+					var _touch:Bool = FlxG.touches.getFirst().overlaps(spr, camera);
+					if (_touch)
+					{
+						curSelected = spr.ID;
+						changeItem();
+					}
+					touch = _touch || touch;
+				}
+			});
 
 			if (controls.BACK)
 			{
@@ -199,7 +223,7 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT || touch)
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
@@ -233,7 +257,27 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
+										//MusicBeatState.switchState(new StoryMenuState());
+										var thepoopooweek = WeekData.weeksLoaded.get('PoyoWeek');
+
+                                        var songArray:Array<String> = [];
+                                        var leWeek:Array<Dynamic> = thepoopooweek.songs;
+                                
+                                        for (i in 0...leWeek.length) {
+                                            songArray.push(leWeek[i][0]);
+                                        }
+
+                                        PlayState.storyPlaylist = songArray;
+                                        PlayState.isStoryMode = true;
+                                        var diffic = CoolUtil.getDifficultyFilePath(curDiff);
+                                        if(diffic == null) diffic = ''; // im a genisu
+
+                                        PlayState.storyDifficulty = 1;
+                                        PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+                                        PlayState.campaignScore = 0;
+                                        PlayState.campaignMisses = 0;
+                                        PlayState.seenCutscene = true;
+                                        LoadingState.loadAndSwitchState(new PlayState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
 									case 'credits':
