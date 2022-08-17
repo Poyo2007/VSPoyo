@@ -215,6 +215,7 @@ class MainMenuState extends MusicBeatState
 					touch = _touch || touch;
 				}
 			});
+			#end
 
 			if (controls.BACK)
 			{
