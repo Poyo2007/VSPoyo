@@ -14,4 +14,4 @@
 	<SubTexture name="up" x="396" y="675" width="396" height="135" frameX="0" frameY="0" frameWidth="396" frameHeight="135"/>
 	<SubTexture name="x" x="0" y="810" width="396" height="135" frameX="0" frameY="0" frameWidth="396" frameHeight="135"/>
 	<SubTexture name="y" x="396" y="810" width="396" height="135" frameX="0" frameY="0" frameWidth="396" frameHeight="135"/>
-</TextureAtlas
+</TextureAtlas>
