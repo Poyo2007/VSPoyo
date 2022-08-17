@@ -270,7 +270,7 @@ class MainMenuState extends MusicBeatState
 
                                         PlayState.storyPlaylist = songArray;
                                         PlayState.isStoryMode = true;
-                                        var diffic = CoolUtil.getDifficultyFilePath(curDiff);
+                                        var diffic = CoolUtil.getDifficultyFilePath(1);
                                         if(diffic == null) diffic = ''; // im a genisu
 
                                         PlayState.storyDifficulty = 1;
