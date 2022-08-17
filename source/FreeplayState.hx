@@ -44,11 +44,7 @@ class FreeplayState extends MusicBeatState
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
-	private var iconArray:Array<HealthIcon> = [];
-
 	var bg:FlxSprite;
-	var intendedColor:Int;
-	var colorTween:FlxTween;
 
 	override function create()
 	{
@@ -151,8 +147,6 @@ class FreeplayState extends MusicBeatState
 		add(scoreText);
 
 		if(curSelected >= songs.length) curSelected = 0;
-		bg.color = songs[curSelected].color;
-		intendedColor = bg.color;
 
 		if(lastDifficultyName == '')
 		{
@@ -317,9 +311,7 @@ class FreeplayState extends MusicBeatState
 		if (controls.BACK)
 		{
 			persistentUpdate = false;
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
+
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 		}
@@ -379,10 +371,7 @@ class FreeplayState extends MusicBeatState
 			PlayState.storyDifficulty = curDifficulty;
 
 			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
-			
+
 			if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonZ.pressed #end){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else{
@@ -444,18 +433,6 @@ class FreeplayState extends MusicBeatState
 			curSelected = songs.length - 1;
 		if (curSelected >= songs.length)
 			curSelected = 0;
-			
-		var newColor:Int = songs[curSelected].color;
-		if(newColor != intendedColor) {
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
-			intendedColor = newColor;
-			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
-				onComplete: function(twn:FlxTween) {
-					colorTween = null;
-				}
-			});
 		}
 
 		// selector.y = (70 * curSelected) + 30;
@@ -466,13 +443,6 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		var bullShit:Int = 0;
-
-		for (i in 0...iconArray.length)
-		{
-			iconArray[i].alpha = 0.6;
-		}
-
-		iconArray[curSelected].alpha = 1;
 
 		for (item in grpSongs.members)
 		{
