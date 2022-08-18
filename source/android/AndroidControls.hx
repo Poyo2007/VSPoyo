@@ -124,17 +124,17 @@ class AndroidControls extends FlxSpriteGroup {
 		return switch (modeNum){
 			case 0: 
 				VIRTUALPAD_RIGHT;
-			case 0: 
-				SIDED;
 			case 1: 
-				VIRTUALPAD_LEFT;
+				SIDED;
 			case 2: 
-				VIRTUALPAD_CUSTOM;
+				VIRTUALPAD_LEFT;
 			case 3: 
+				VIRTUALPAD_CUSTOM;
+			case 4: 
 				DUO;
-			case 4:	
+			case 5:	
 				HITBOX;
-			case 5: 
+			case 6: 
 				KEYBOARD;
 			default: 
 				VIRTUALPAD_RIGHT;

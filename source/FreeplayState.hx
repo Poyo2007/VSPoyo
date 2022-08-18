@@ -142,6 +142,7 @@ class FreeplayState extends MusicBeatState
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
+		diffText.alpha = 0;
 		add(diffText);
 
 		add(scoreText);
