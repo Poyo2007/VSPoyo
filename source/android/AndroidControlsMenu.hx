@@ -24,7 +24,7 @@ class AndroidControlsMenu extends MusicBeatState
 	var inputvari:PsychAlphabet;
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
-	var controlitems:Array<String> = ['Pad-Right', 'Pad-Left', 'Pad-Custom', 'Duo', 'Hitbox', 'Keyboard'];
+	var controlitems:Array<String> = ['Pad-Right', 'Sided', 'Pad-Left', 'Pad-Custom', 'Duo', 'Hitbox', 'Keyboard'];
 	var curSelected:Int = 0;
 	var buttonIsTouched:Bool = false;
 	var bindButton:FlxButton;
@@ -189,6 +189,10 @@ class AndroidControlsMenu extends MusicBeatState
 		switch (daChoice)
 		{
 			case 'Pad-Right':
+				remove(vpad);
+				vpad = new FlxVirtualPad(RIGHT_FULL, NONE);
+				add(vpad);
+			case 'Sided':
 				remove(vpad);
 				vpad = new FlxVirtualPad(RIGHT_FULL, NONE);
 				add(vpad);

@@ -85,16 +85,21 @@ class FlxVirtualPad extends FlxSpriteGroup
 				dPad.add(add(buttonLeft = createButton(FlxG.width - 384, FlxG.height - 309, 132, 127, 'left', 0xFFFF00FF)));
 				dPad.add(add(buttonRight = createButton(FlxG.width - 132, FlxG.height - 309, 132, 127, 'right', 0xFFFF0000)));
 				dPad.add(add(buttonDown = createButton(FlxG.width - 258, FlxG.height - 201, 132, 127, 'down', 0xFF00FFFF)));
+            case SIDED:
+				dPad.add(add(buttonUp = createButton(FlxG.width - 258, FlxG.height - 201, 132, 127, 'up', 0xFF00FF00)));
+				dPad.add(add(buttonLeft = createButton(0, FlxG.height - 201, 132, 127, 'left', 0xFFFF00FF)));
+				dPad.add(add(buttonRight = createButton(FlxG.width - 132, FlxG.height - 201, 132, 127, 'right', 0xFFFF0000)));
+				dPad.add(add(buttonDown = createButton(132, FlxG.height - 201, 132, 127, 'down', 0xFF00FFFF)));
 			case DUO:
 				dPad.add(add(buttonUp = createButton(105, FlxG.height - 345, 132, 127, 'up', 0xFF00FF00)));
 				dPad.add(add(buttonLeft = createButton(0, FlxG.height - 243, 132, 127, 'left', 0xFFFF00FF)));
 				dPad.add(add(buttonRight = createButton(207, FlxG.height - 243, 132, 127, 'right', 0xFFFF0000)));
 				dPad.add(add(buttonDown = createButton(105, FlxG.height - 135, 132, 127, 'down', 0xFF00FFFF)));
 
-				dPad.add(add(buttonUp2 = createButton(FlxG.width - 258, FlxG.height - 408, 132, 127, 'up', 0xFF00FF00)));
-				dPad.add(add(buttonLeft2 = createButton(FlxG.width - 384, FlxG.height - 309, 132, 127, 'left', 0xFFFF00FF)));
-				dPad.add(add(buttonRight2 = createButton(FlxG.width - 132, FlxG.height - 309, 132, 127, 'right', 0xFFFF0000)));
-				dPad.add(add(buttonDown2 = createButton(FlxG.width - 258, FlxG.height - 201, 132, 127, 'down', 0xFF00FFFF)));
+				dPad.add(add(buttonUp2 = createButton(FlxG.width - 258, FlxG.height - 408, 132, 127, 'y', 0xFF00FF00)));
+				dPad.add(add(buttonLeft2 = createButton(FlxG.width - 384, FlxG.height - 309, 132, 127, 'x', 0xFFFF00FF)));
+				dPad.add(add(buttonRight2 = createButton(FlxG.width - 132, FlxG.height - 309, 132, 127, 'b', 0xFFFF0000)));
+				dPad.add(add(buttonDown2 = createButton(FlxG.width - 258, FlxG.height - 201, 132, 127, 'a', 0xFF00FFFF)));
 			case NONE:
 		}
 
@@ -207,6 +212,7 @@ enum FlxDPadMode
 	UP_LEFT_RIGHT;
 	FULL;
 	RIGHT_FULL;
+	SIDED;
 	DUO;
 	NONE;
 }
