@@ -96,7 +96,7 @@ class CreditsState extends MusicBeatState
 			['Android Support'],
 			['Saw (M.A. Jigsaw)',	'saw',				'Main Programmer of Psych Engine\nWith Android Support',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['Goldie',				'goldie',			'Virtual Pad Artist',										'https://www.youtube.com/channel/UCjTi9Hfl1Eb5Bgk5gksmsbA', 	'444444'],
-    		['Join Saws Discord', 'discord', 'hes a cool dude drop a visit', 'https://discord.gg/f4RNBFHczd', '444444']
+    		['Join Saws Discord', 'discord', 'hes a cool dude drop a visit', 'https://discord.gg/f4RNBFHczd', '444444'],
     		[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
