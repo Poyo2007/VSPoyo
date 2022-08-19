@@ -82,15 +82,21 @@ class CreditsState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
             ['FNF: VS POYO Dev Team'],
-			['Poyo',	'poyo',				'Director, Main Programmer,',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['Poyo',	'poyo',				'Director, Main Programmer, Vocal Maker',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['shekkai47',	'shekkai',				'Composed Epic, Summer Sunset',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['bingg',	'bingg',				'Animated Poyo and Girlfriend',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['The VR Core.',	'core',				'Made Poopshit Chart',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['Nafri',	'nafri',				'Composed Epic Legacy',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['almondsdemo',	'almond',				'Made Name Thief and Energizer',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['MaidntlessRT',	'maidentless',				'Made Both BF and GF Sprites',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['PBGFAN',	'pbgfan',				'this  is the guy responsible for poopshit? GRRR I HATE U GRR GRRR BARK',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['radi/vanilla',	'vani',				'Made Both OG and New Poyo Sprites',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['McFadeDev',	'mcfade',				'Made OG Background (as shown in Epic Legacy)',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
             [''],
 			['Android Support'],
 			['Saw (M.A. Jigsaw)',	'saw',				'Main Programmer of Psych Engine\nWith Android Support',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['Goldie',				'goldie',			'Virtual Pad Artist',										'https://www.youtube.com/channel/UCjTi9Hfl1Eb5Bgk5gksmsbA', 	'444444'],
+    		['Join Saws Discord', 'discord', 'hes a cool dude drop a visit', 'https://discord.gg/f4RNBFHczd', '444444']
     		[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
