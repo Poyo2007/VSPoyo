@@ -2151,6 +2151,7 @@ class PlayState extends MusicBeatState
 		        var countdownNumber:Int = 0;
 		        var countdownAsset:String = '';
 		        var countdownVar:String = '';
+		        var antialias:Bool = ClientPrefs.globalAntialiasing;
 		        var countdownVar2;
 
 		        switch(event.value1.toLowerCase()) {
