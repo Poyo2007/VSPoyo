@@ -24,24 +24,13 @@ class FlashingState extends MusicBeatState
 		add(bg);
 
 		#if android
-		warnText = new FlxText(0, 0, FlxG.width,
-			"Hey, watch out!\n
-			Be careful with the phone touch if you touch fast!\n
-			You can broke your phone touch if you do that also\n
-			This Mod contains some flashing lights!\n
-			Press A to disable them now or go to Options Menu.\n
-			Press B to ignore this message.\n
-			You've been warned!",
+		warnText = "Hey!
+		    \nThis mod may not have flashing lights, but it does have Camera Flashing.
+		    \nYou can do 2 things. Delete the events on both songs,
+		    \n disable Flashing Lights." #if mobile 
+		    + "\nPress B to continue, A to disable Flashing Lights", #else
+		    + "\nPress ESC to continue, ENTER to disable Flashing Lights", #end
 			32);
-		#else
-		warnText = new FlxText(0, 0, FlxG.width,
-			"Hey, watch out!\n
-			This Mod contains some flashing lights!\n
-			Press ENTER to disable them now or go to Options Menu.\n
-			Press ESCAPE to ignore this message.\n
-			You've been warned!",
-			32);
-		#end
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
