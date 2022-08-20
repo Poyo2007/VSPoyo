@@ -2167,7 +2167,7 @@ class PlayState extends MusicBeatState
 		            case 1:
 		                countdownAsset = 'set';
 		            case 2:
-		                countdownAsset = 'ready'
+		                countdownAsset = 'ready';
 		        }
 		        
 		        countdownVar = fakeCountdown + countdownAsset;
