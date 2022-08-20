@@ -2151,14 +2151,18 @@ class PlayState extends MusicBeatState
 		        var countdownNumber:Int = 0;
 		        var countdownAsset:String = '';
 		        var countdownVar:String = '';
+		        var countdownVar2;
 		        var fakeCountdown;
 		        switch(event.value1.toLowerCase()) {
 		            case 'ready' | '2':
 		                countdownNumber = 2;
+		                countdownVar2 = ready;
 		            case 'set' | '1':
 		                countdownNumber = 1;
+		                countdownVar2 = set;
 		            case 'go' | '0':
 		                countdownNumber = 0;
+		                countdownVar2 = go;
 		        }
 		        
 		        switch(countdownNumber)
@@ -2171,7 +2175,7 @@ class PlayState extends MusicBeatState
 		                countdownAsset = 'ready';
 		        }
 		        
-		        countdownVar = fakeCountdown + countdownAsset;
+		        countdownVar = fakeCountdown + countdownVar2;
 
     		        countdownVar = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
     				countdownVar.scrollFactor.set();
