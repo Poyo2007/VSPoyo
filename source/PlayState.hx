@@ -2151,6 +2151,7 @@ class PlayState extends MusicBeatState
 		        var countdownNumber:Int = 0;
 		        var countdownAsset:String = '';
 		        var countdownVar:String = '';
+		        var fakeCountdown
 		        switch(event.value1.toLowerCase()) {
 		            case 'ready' | '2':
 		                countdownNumber = 2;
