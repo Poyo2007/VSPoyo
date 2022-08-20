@@ -1039,9 +1039,6 @@ class PlayState extends MusicBeatState
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
-		
-	    if (Paths.formatToSongPath(SONG.song) == 'summer-sunset') skipCountdown = true;
-
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
 		callOnLuas('onCreatePost', []);
 
@@ -1664,6 +1661,11 @@ class PlayState extends MusicBeatState
 	public var countdownReady:FlxSprite;
 	public var countdownSet:FlxSprite;
 	public var countdownGo:FlxSprite;
+	
+	public var fakeCountdownready:FlxSprite;
+	public var fakeCountdownset:FlxSprite;
+	public var fakeCountdowngo:FlxSprite;
+	
 	public static var startOnTime:Float = 0;
 
 	public function startCountdown():Void
@@ -2145,6 +2147,49 @@ class PlayState extends MusicBeatState
 
 	function eventPushed(event:EventNote) {
 		switch(event.event) {
+		    case 'Fake Countdown':
+		        var countdownNumber:Int = 0;
+		        var countdownAsset:String = '';
+		        var countdownVar:String = '';
+		        switch(event.value1.toLowerCase()) {
+		            case 'ready' | '2'
+		                countdownNumber = 2;
+		            case 'set' | '1'
+		                countdownNumber = 1;
+		            case 'go' | '0'
+		                countdownNumber = 0;
+		        }
+		        
+		        switch(countdownNumber)
+		        {
+		            case 0:
+		                countdownAsset = 'go';
+		            case 1:
+		                countdownAsset = 'set';
+		            case 2:
+		                countdownAsset = 'ready'
+		        }
+		        
+		        countdownVar = fakeCountdown + countdownAsset;
+
+    		        countdownVar = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
+    				countdownVar.scrollFactor.set();
+    			    countdownVar.updateHitbox();
+    
+    			    if (PlayState.isPixelStage)
+    				    countdownVar.setGraphicSize(Std.int(countdownReady.width * daPixelZoom));
+    
+    				countdownVar.screenCenter();
+    			    countdownVar.antialiasing = antialias;
+    				add(countdownVar);
+    				FlxTween.tween(countdownVar, {/*y: countdownReady.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+        				ease: FlxEase.cubeInOut,
+        				onComplete: function(twn:FlxTween)
+        				{
+        					remove(countdownVar);
+        					countdownVar.destroy();
+        				}
+    				});
 			case 'Change Character':
 				var charType:Int = 0;
 				switch(event.value1.toLowerCase()) {
