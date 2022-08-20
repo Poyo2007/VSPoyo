@@ -3146,11 +3146,7 @@ class PlayState extends MusicBeatState
             				}
         				});
 		        }
-		    case 'FlxG.camera.flash':
-		        var val:Null<Int> = Std.parseInt(value1);
-				if(val == null) val = 0
-		        FlxG.camera.flash(FlxColor.WHITE, );
-			case 'Dadbattle Spotlight':
+			case 'Camera Flash':
 				var val:Null<Int> = Std.parseInt(value1);
 				if(val == null) val = 1;
 
