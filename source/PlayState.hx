@@ -2153,6 +2153,11 @@ class PlayState extends MusicBeatState
 		        var countdownVar:String = '';
 		        var countdownVar2;
 		        var fakeCountdown;
+
+		        var ready;
+		        var set;
+		        var go;
+
 		        switch(event.value1.toLowerCase()) {
 		            case 'ready' | '2':
 		                countdownNumber = 2;
@@ -2164,7 +2169,7 @@ class PlayState extends MusicBeatState
 		                countdownNumber = 0;
 		                countdownVar2 = go;
 		        }
-		        
+
 		        switch(countdownNumber)
 		        {
 		            case 0:
@@ -2174,16 +2179,16 @@ class PlayState extends MusicBeatState
 		            case 2:
 		                countdownAsset = 'ready';
 		        }
-		        
+
 		        countdownVar = fakeCountdown + countdownVar2;
 
     		        countdownVar = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
     				countdownVar.scrollFactor.set();
     			    countdownVar.updateHitbox();
-    
+
     			    if (PlayState.isPixelStage)
     				    countdownVar.setGraphicSize(Std.int(countdownReady.width * daPixelZoom));
-    
+
     				countdownVar.screenCenter();
     			    countdownVar.antialiasing = antialias;
     				add(countdownVar);
