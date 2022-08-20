@@ -2152,11 +2152,11 @@ class PlayState extends MusicBeatState
 		        var countdownAsset:String = '';
 		        var countdownVar:String = '';
 		        switch(event.value1.toLowerCase()) {
-		            case 'ready' | '2'
+		            case 'ready' | '2':
 		                countdownNumber = 2;
-		            case 'set' | '1'
+		            case 'set' | '1':
 		                countdownNumber = 1;
-		            case 'go' | '0'
+		            case 'go' | '0':
 		                countdownNumber = 0;
 		        }
 		        
