@@ -95,6 +95,7 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Fake Countdown', "Makes a fake countdown. each Countdown Asset can only be used once per Song. \n type 2, or ready for ready, 1 or set for set, 0 or go for go"],
+		['Camera Flash', 'Self explanatory. Value 1 is how long it should flash for.']
 		['Set Property', "Value 1: Variable name\nValue 2: New value"]
 	];
 

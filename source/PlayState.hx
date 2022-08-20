@@ -3146,40 +3146,15 @@ class PlayState extends MusicBeatState
             				}
         				});
 		        }
+		    case 'FlxG.camera.flash':
+		        var val:Null<Int> = Std.parseInt(value1);
+				if(val == null) val = 0
+		        FlxG.camera.flash(FlxColor.WHITE, );
 			case 'Dadbattle Spotlight':
 				var val:Null<Int> = Std.parseInt(value1);
-				if(val == null) val = 0;
+				if(val == null) val = 1;
 
-				switch(Std.parseInt(value1))
-				{
-					case 1, 2, 3: //enable and target dad
-						if(val == 1) //enable
-						{
-							dadbattleBlack.visible = true;
-							dadbattleLight.visible = true;
-							dadbattleSmokes.visible = true;
-							defaultCamZoom += 0.12;
-						}
-
-						var who:Character = dad;
-						if(val > 2) who = boyfriend;
-						//2 only targets dad
-						dadbattleLight.alpha = 0;
-						new FlxTimer().start(0.12, function(tmr:FlxTimer) {
-							dadbattleLight.alpha = 0.375;
-						});
-						dadbattleLight.setPosition(who.getGraphicMidpoint().x - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
-
-					default:
-						dadbattleBlack.visible = false;
-						dadbattleLight.visible = false;
-						defaultCamZoom -= 0.12;
-						FlxTween.tween(dadbattleSmokes, {alpha: 0}, 1, {onComplete: function(twn:FlxTween)
-						{
-							dadbattleSmokes.visible = false;
-						}});
-				}
-
+                FlxG.camera.flash(FlxColor.WHITE, val)
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
