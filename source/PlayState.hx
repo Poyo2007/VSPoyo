@@ -3150,7 +3150,7 @@ class PlayState extends MusicBeatState
 				var val:Null<Int> = Std.parseInt(value1);
 				if(val == null) val = 1;
 
-                FlxG.camera.flash(FlxColor.WHITE, val)
+                FlxG.camera.flash(FlxColor.WHITE, val);
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
