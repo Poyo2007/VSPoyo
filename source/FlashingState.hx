@@ -27,10 +27,8 @@ class FlashingState extends MusicBeatState
 		warnText = "Hey!
 		    \nThis mod may not have flashing lights, but it does have Camera Flashing.
 		    \nYou can do 2 things. Delete the events on both songs,
-		    \n disable Flashing Lights." #if mobile 
-		    + "\nPress B to continue, A to disable Flashing Lights", #else
-		    + "\nPress ESC to continue, ENTER to disable Flashing Lights", #end
-			32);
+		    \n disable Flashing Lights. 
+		    \nPress ESC to continue, ENTER to disable Flashing Lights", 32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);

@@ -3088,6 +3088,7 @@ class PlayState extends MusicBeatState
 		                fakeCountdowngo = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
         				fakeCountdowngo.scrollFactor.set();
         			    fakeCountdowngo.updateHitbox();
+        			    fakeCountdownset.cameras = [camOther];
     
         			    if (PlayState.isPixelStage)
         				    fakeCountdowngo.setGraphicSize(Std.int(fakeCountdowngo.width * daPixelZoom));
@@ -3109,6 +3110,7 @@ class PlayState extends MusicBeatState
 		                fakeCountdownset = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
         				fakeCountdownset.scrollFactor.set();
         			    fakeCountdownset.updateHitbox();
+        			    fakeCountdownset.cameras = [camOther];
     
         			    if (PlayState.isPixelStage)
         				    fakeCountdownset.setGraphicSize(Std.int(fakeCountdownset.width * daPixelZoom));
@@ -3130,6 +3132,7 @@ class PlayState extends MusicBeatState
 		                fakeCountdownready = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
         				fakeCountdownready.scrollFactor.set();
         			    fakeCountdownready.updateHitbox();
+        			    fakeCountdownready.cameras = [camOther];
     
         			    if (PlayState.isPixelStage)
         				    fakeCountdownready.setGraphicSize(Std.int(fakeCountdownready.width * daPixelZoom));
