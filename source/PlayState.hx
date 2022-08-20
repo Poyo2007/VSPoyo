@@ -3063,6 +3063,89 @@ class PlayState extends MusicBeatState
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
 		switch(eventName) {
+		    
+		    case 'Fake Countdown':
+		        var countdownNumber:Int = 0;
+		        var countdownAsset:String = '';
+		        var countdownVar:String = '';
+		        var antialias:Bool = ClientPrefs.globalAntialiasing;
+		        var countdownVar2;
+
+		        switch(value1.toLowerCase().trim()) {
+		            case 'ready' | '2':
+		                countdownNumber = 2;
+		            case 'set' | '1':
+		                countdownNumber = 1;
+		            case 'go' | '0':
+		                countdownNumber = 0;
+		        }
+
+		        switch(countdownNumber)
+		        {
+		            case 0:
+		                countdownAsset = 'go';
+
+		                fakeCountdowngo = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
+        				fakeCountdowngo.scrollFactor.set();
+        			    fakeCountdowngo.updateHitbox();
+    
+        			    if (PlayState.isPixelStage)
+        				    fakeCountdowngo.setGraphicSize(Std.int(fakeCountdowngo.width * daPixelZoom));
+    
+        				fakeCountdowngo.screenCenter();
+        			    fakeCountdowngo.antialiasing = antialias;
+        				add(fakeCountdowngo);
+        				FlxTween.tween(fakeCountdowngo, {/*y: countdownReady.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+            				ease: FlxEase.cubeInOut,
+            				onComplete: function(twn:FlxTween)
+            				{
+            					remove(fakeCountdowngo);
+            					fakeCountdowngo.destroy();
+            				}
+        				});
+		            case 1:
+		                countdownAsset = 'set';
+		                
+		                fakeCountdownset = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
+        				fakeCountdownset.scrollFactor.set();
+        			    fakeCountdownset.updateHitbox();
+    
+        			    if (PlayState.isPixelStage)
+        				    fakeCountdownset.setGraphicSize(Std.int(fakeCountdownset.width * daPixelZoom));
+    
+        				fakeCountdownset.screenCenter();
+        			    fakeCountdownset.antialiasing = antialias;
+        				add(fakeCountdownset);
+        				FlxTween.tween(fakeCountdownset, {/*y: countdownReady.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+            				ease: FlxEase.cubeInOut,
+            				onComplete: function(twn:FlxTween)
+            				{
+            					remove(fakeCountdownset);
+            					fakeCountdownset.destroy();
+            				}
+        				});
+		            case 2:
+		                countdownAsset = 'ready';
+		                
+		                fakeCountdownready = new FlxSprite().loadGraphic(Paths.image(countdownAsset));
+        				fakeCountdownready.scrollFactor.set();
+        			    fakeCountdownready.updateHitbox();
+    
+        			    if (PlayState.isPixelStage)
+        				    fakeCountdownready.setGraphicSize(Std.int(fakeCountdownready.width * daPixelZoom));
+    
+        				fakeCountdownready.screenCenter();
+        			    fakeCountdownready.antialiasing = antialias;
+        				add(fakeCountdownready);
+        				FlxTween.tween(fakeCountdownready, {/*y: countdownReady.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+            				ease: FlxEase.cubeInOut,
+            				onComplete: function(twn:FlxTween)
+            				{
+            					remove(fakeCountdownready);
+            					fakeCountdownready.destroy();
+            				}
+        				});
+		        }
 			case 'Dadbattle Spotlight':
 				var val:Null<Int> = Std.parseInt(value1);
 				if(val == null) val = 0;
