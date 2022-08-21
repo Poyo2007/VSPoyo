@@ -1,0 +1,93 @@
+{
+	"song": {
+		"speed": 2.5,
+		"stage": "cityvspoyo",
+		"player1": "new bf",
+		"player2": "poyo",
+		"events": [
+			[
+				66206.8965517241,
+				[
+					[
+						"Camera Flash",
+						"",
+						""
+					],
+					[
+						"Set Property",
+						"defaultCamZoom",
+						"1.4"
+					]
+				]
+			],
+			[
+				79448.275862069,
+				[
+					[
+						"Set Property",
+						"defaultCamZoom",
+						"0.8"
+					],
+					[
+						"Camera Flash",
+						"",
+						""
+					]
+				]
+			],
+			[
+				91448.275862069,
+				[
+					[
+						"Fake Countdown",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				91862.0689655172,
+				[
+					[
+						"Fake Countdown",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				92275.8620689655,
+				[
+					[
+						"Fake Countdown",
+						"go",
+						""
+					]
+				]
+			],
+			[
+				92689.6551724138,
+				[
+					[
+						"Camera Flash",
+						"",
+						""
+					],
+					[
+						"Set Property",
+						"defaultCamZoom",
+						"0.65"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": "noteSplashes",
+		"validScore": false,
+		"gfVersion": "new gf",
+		"bpm": 145,
+		"arrowSkin": "",
+		"needsVoices": true,
+		"song": "Summer-Sunset"
+	}
+}

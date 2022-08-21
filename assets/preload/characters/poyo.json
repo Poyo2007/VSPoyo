@@ -1,78 +1,104 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				-1,
-				-22
+				58,
+				-26
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Poyo Left",
-			"indices": []
+			"indices": [],
+			"name": "left instance 1"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				-20
-			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "Poyo Idle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				-20
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Poyo Down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				13,
-				-19
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "Poyo Up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-3,
+				-41,
 				-18
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Poyo Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right instance 1"
+		},
+		{
+			"offsets": [
+				96,
+				-80
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down instance 1"
+		},
+		{
+			"offsets": [
+				44,
+				40
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up instance 1"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			],
+			"fps": 24,
+			"anim": "danceRight",
+			"loop": false,
+			"name": "idle instance 1"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			],
+			"fps": 24,
+			"anim": "danceLeft",
+			"loop": false,
+			"name": "idle instance 1"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Poyo",
+	"image": "characters/poyo anims",
 	"position": [
-		0,
-		80
+		160,
+		160
 	],
 	"healthicon": "poyo",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,
-		221,
-		221
+		182,
+		199
 	],
 	"camera_position": [
-		-120,
-		-80
+		-220,
+		-180
 	],
 	"sing_duration": 6.1,
-	"scale": 1.2
+	"scale": 2
 }
