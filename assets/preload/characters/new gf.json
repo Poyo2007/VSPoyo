@@ -1,32 +1,32 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				16,
 				-13
 			],
-			"anim": "danceLeft",
+			"loop": false,
 			"fps": 24,
-			"name": "left",
-			"indices": []
+			"anim": "danceLeft",
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "danceRight",
+			"loop": false,
 			"fps": 24,
-			"name": "right",
-			"indices": []
+			"anim": "danceRight",
+			"indices": [],
+			"name": "right"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/gfpoyo",
 	"position": [
-		120,
+		-30,
 		-140
 	],
 	"healthicon": "bf",

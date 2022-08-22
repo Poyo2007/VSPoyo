@@ -342,7 +342,7 @@ class TitleState extends MusicBeatState
 		// titleText.screenCenter(X);
 		add(titleText);
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
+		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('poyoLogo'));
 		logo.screenCenter();
 		logo.antialiasing = ClientPrefs.globalAntialiasing;
 		add(logo);
@@ -603,7 +603,7 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					createCoolText(['Psych Engine by'], 15);
 					#else
-					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+					createCoolText(['Cooked Cookies Development']);
 					#end
 				// credTextShit.visible = true;
 				case 4:
@@ -628,21 +628,19 @@ class TitleState extends MusicBeatState
 					createCoolText(['In association', 'with'], -40);
 					#end
 				case 8:
-					addMoreText('newgrounds', -40);
-					ngSpr.visible = true;
+					addMoreText('me lmao', -40);
 				// credTextShit.text += '\nNewgrounds';
 				case 9:
 					deleteCoolText();
-					ngSpr.visible = false;
 				// credTextShit.visible = false;
 
 				// credTextShit.text = 'Shoutouts Tom Fulp';
 				// credTextShit.screenCenter();
 				case 10:
-					createCoolText([curWacky[0]]);
+					createCoolText(['after months');
 				// credTextShit.visible = true;
 				case 12:
-					addMoreText(curWacky[1]);
+					addMoreText(['we bring to you']);
 				// credTextShit.text += '\nlmao';
 				case 13:
 					deleteCoolText();
@@ -650,13 +648,13 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
 				case 14:
-					addMoreText('Friday');
+					addMoreText('FNF VS POYO');
 				// credTextShit.visible = true;
 				case 15:
-					addMoreText('Night');
+					addMoreText('in its');
 				// credTextShit.text += '\nNight';
 				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('best state yet'); // credTextShit.text += '\nFunkin';
 
 				case 17:
 					skipIntro();
