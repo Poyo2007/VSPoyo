@@ -640,7 +640,7 @@ class TitleState extends MusicBeatState
 					createCoolText(['after months']);
 				// credTextShit.visible = true;
 				case 12:
-					addMoreText(['we bring to you']);
+					addMoreText('we bring to you');
 				// credTextShit.text += '\nlmao';
 				case 13:
 					deleteCoolText();
