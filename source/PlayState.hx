@@ -862,7 +862,7 @@ class PlayState extends MusicBeatState
 		add(judgementTxt);
 		
 		wipTxt = new FlxText(0, 0, FlxG.width, "WIP BUILD\nTHINGS ARE SUBJECT TO CHANGE", 20);
-		wipTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		wipTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		wipTxt.scrollFactor.set();
 		wipTxt.borderSize = 1.25;
 		wipTxt.alpha = 0.2;
