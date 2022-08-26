@@ -247,6 +247,7 @@ class PlayState extends MusicBeatState
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
 	public var judgementTxt:FlxText;
+	public var wipTxt:FlxText;
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 	
@@ -859,6 +860,14 @@ class PlayState extends MusicBeatState
 		judgementTxt.visible = !ClientPrefs.hideHud;
 		judgementTxt.screenCenter(Y);
 		add(judgementTxt);
+		
+		wipTxt = new FlxText(0, 0, FlxG.width, "WIP BUILD\nTHINGS ARE SUBJECT TO CHANGE", 20);
+		wipTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		wipTxt.scrollFactor.set();
+		wipTxt.borderSize = 1.25;
+		wipTxt.alpha = 0.2;
+		wipTxt.screenCenter();
+		add(wipTxt);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -879,6 +888,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		judgementTxt.cameras = [camHUD];
+		wipTxt.cameras = [camOther];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
