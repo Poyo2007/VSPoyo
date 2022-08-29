@@ -481,10 +481,10 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'cityvspoyo': //Week 1
-				poyobg:BGSprite = new BGSprite('bg', -700, -345, 1, 1);
+				poyobg = new BGSprite('bg', -700, -345, 1, 1);
 				add(poyobg);
 			case 'cityvspoyoold': //Week 1
-				OLDpoyobg:BGSprite = new BGSprite('OG_bg', -700, -345, 1, 1);
+				OLDpoyobg = new BGSprite('OG_bg', -700, -345, 1, 1);
 				add(OLDpoyobg);
 		}
 
