@@ -227,6 +227,9 @@ class PlayState extends MusicBeatState
 	var grpLimoParticles:FlxTypedGroup<BGSprite>;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:BGSprite;
+	
+	var poyobg:BGSprite;
+	var OLDpoyobg:BGSprite;
 
 	var upperBoppers:BGSprite;
 	var bottomBoppers:BGSprite;
@@ -478,11 +481,11 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'cityvspoyo': //Week 1
-				var bg:BGSprite = new BGSprite('bg', -700, -345, 1, 1);
-				add(bg);
+				poyobg:BGSprite = new BGSprite('bg', -700, -345, 1, 1);
+				add(poyobg);
 			case 'cityvspoyoold': //Week 1
-				var bg:BGSprite = new BGSprite('OG_bg', -700, -345, 1, 1);
-				add(bg);
+				OLDpoyobg:BGSprite = new BGSprite('OG_bg', -700, -345, 1, 1);
+				add(OLDpoyobg);
 		}
 
 		switch(Paths.formatToSongPath(SONG.song))
