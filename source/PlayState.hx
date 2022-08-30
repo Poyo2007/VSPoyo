@@ -80,7 +80,7 @@ class PlayState extends MusicBeatState
 		['good lol', 0.8], //From 70% to 79%
 		['not too shitty', 0.9], //From 80% to 89%
 		['damn', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['GUH?!?!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
@@ -108,6 +108,8 @@ class PlayState extends MusicBeatState
 	public var DAD_Y:Float = 100;
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
+	
+	public var charSelection:Int = CharSelectState.curSelected;
 
 	public var songSpeedTween:FlxTween;
 	public var songSpeed(default, set):Float = 1;
@@ -624,8 +626,22 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
+    
+    if (isStoryMode)
+		  boyfriend = new Boyfriend(0, 0, SONG.player1);
+		else
+		  switch(charSelection)
+		  {
+		    case 0:
+		      boyfriend = new Boyfriend(0, 0, 'new bf');
+		    case 1:
+		      boyfriend = new Boyfriend(0, 0, 'bf');
+		    case 2:
+		      boyfriend = new Boyfriend(0, 0, 'poyo');
+		    case 3: 
+		      boyfriend = new Boyfriend(0, 0, 'old poyo')
+		  }
 
-		boyfriend = new Boyfriend(0, 0, SONG.player1);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
