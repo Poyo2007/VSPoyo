@@ -639,7 +639,7 @@ class PlayState extends MusicBeatState
 		    case 2:
 		      boyfriend = new Boyfriend(0, 0, 'poyo');
 		    case 3: 
-		      boyfriend = new Boyfriend(0, 0, 'old poyo')
+		      boyfriend = new Boyfriend(0, 0, 'old poyo');
 		  }
 
 		startCharacterPos(boyfriend);
