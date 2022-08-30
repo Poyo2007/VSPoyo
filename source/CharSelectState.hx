@@ -95,6 +95,7 @@ class CharSelectState extends MusicBeatState{
 		var bullShit:Int = 0;
 
 		for (item in grpChars.members)
+		{
 		
 			item.targetY = bullShit - curSelected;
 			bullShit++;
@@ -108,49 +109,6 @@ class CharSelectState extends MusicBeatState{
 				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
-		
-		Paths.currentModDirectory = songs[curSelected].folder;
-		PlayState.storyWeek = songs[curSelected].week;
-
-		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
-		var diffStr:String = WeekData.getCurrentWeek().difficulties;
-		if(diffStr != null) diffStr = diffStr.trim(); //Fuck you HTML5
-
-		if(diffStr != null && diffStr.length > 0)
-		{
-			var diffs:Array<String> = diffStr.split(',');
-			var i:Int = diffs.length - 1;
-			while (i > 0)
-			{
-				if(diffs[i] != null)
-				{
-					diffs[i] = diffs[i].trim();
-					if(diffs[i].length < 1) diffs.remove(diffs[i]);
-				}
-				--i;
-			}
-
-			if(diffs.length > 0 && diffs[0].length > 0)
-			{
-				CoolUtil.difficulties = diffs;
-			}
-		}
-		
-		if(CoolUtil.difficulties.contains(CoolUtil.defaultDifficulty))
-		{
-			curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(CoolUtil.defaultDifficulty)));
-		}
-		else
-		{
-			curDifficulty = 0;
-		}
-
-		var newPos:Int = CoolUtil.difficulties.indexOf(lastDifficultyName);
-		//trace('Pos of ' + lastDifficultyName + ' is ' + newPos);
-		if(newPos > -1)
-		{
-			curDifficulty = newPos;
-		}
 	}
 
     override function update(elapsed:Float){
@@ -162,28 +120,10 @@ class CharSelectState extends MusicBeatState{
         changeSelection(1);
         FlxG.sound.play(Paths.sound('scrollMenu'));
         }
+        
         if (controls.ACCEPT){
-        FlxG.sound.play(Paths.sound('confirmMenu'));
-        switch(curSelected){
-        case 0:
-        FlxFlicker.flicker(newbfpoyo, 1.5, 0.15, false);
-        newbfpoyo.animation.play('hey');
-        case 1:
-        FlxFlicker.flicker(bfphantom, 1.5, 0.15, false);
-        bfphantom.animation.play('hey');
-        case 2:
-        FlxFlicker.flicker(poyo, 1.5, 0.15, false);
-        poyo.animation.play('hey');
-        case 3:
-        FlxFlicker.flicker(oldpoyo, 1.5, 0.15, false);
-        oldpoyo.animation.play('hey');
-        }
-        new FlxTimer().start(1.5, function(tmr:FlxTimer)
-            {
         MusicBeatState.switchState(new PlayState());
         FlxG.sound.music.volume = 0;
-            });
-        }
         if (controls.BACK){
         FlxG.sound.play(Paths.sound('cancelMenu'));
         MusicBeatState.switchState(new FreeplayState());
