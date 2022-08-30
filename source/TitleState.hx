@@ -342,7 +342,7 @@ class TitleState extends MusicBeatState
 		// titleText.screenCenter(X);
 		add(titleText);
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('poyoLogo'));
+		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('PoyoTitle'));
 		logo.screenCenter();
 		logo.antialiasing = ClientPrefs.globalAntialiasing;
 		add(logo);

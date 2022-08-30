@@ -1,0 +1,104 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-19,
+				-25
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "left instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				82,
+				-18
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				100,
+				-73
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				30,
+				43
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "up instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "idle instance 1",
+			"indices": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "idle instance 1",
+			"indices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			]
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/poyo anims",
+	"position": [
+		160,
+		160
+	],
+	"healthicon": "poyo",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		182,
+		199
+	],
+	"camera_position": [
+		420,
+		-180
+	],
+	"sing_duration": 6.1,
+	"scale": 2
+}

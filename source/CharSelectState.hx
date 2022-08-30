@@ -47,18 +47,19 @@ class CharSelectState extends MusicBeatState{
         poyo.animation.addByPrefix('idle', 'idle instance 1', 24, true);
         poyo.animation.addByPrefix('hey', 'up instance 1', 24, true);
         poyo.animation.addByPrefix('singUP', 'up instance 1', 24, true);
+        poyo.scale.set(2, 2)
         poyo.screenCenter();
         poyo.animation.play('idle');
         add(poyo);
         
         oldpoyo = new FlxSprite(450, 300).loadGraphic(Paths.image('characters/poyolmao'));
-        poyo.frames = Paths.getSparrowAtlas('characters/poyolmao');
-        poyo.animation.addByPrefix('idle', 'Idle', 24, true);
-        poyo.animation.addByPrefix('hey', 'Up', 24, true);
-        poyo.animation.addByPrefix('singUP', 'Up', 24, true);
-        poyo.screenCenter();
-        poyo.animation.play('idle');
-        add(poyo);
+        oldpoyo.frames = Paths.getSparrowAtlas('characters/poyolmao');
+        oldpoyo.animation.addByPrefix('idle', 'Idle', 24, true);
+        oldpoyo.animation.addByPrefix('hey', 'Up', 24, true);
+        oldpoyo.animation.addByPrefix('singUP', 'Up', 24, true);
+        oldpoyo.screenCenter();
+        oldpoyo.animation.play('idle');
+        add(oldpoyo);
 		selectedText = new FlxText(0, 10, charsArray[0], 24);
 		selectedText.alpha = 0.5;
 		selectedText.x = (FlxG.width) - (selectedText.width) - 25;
