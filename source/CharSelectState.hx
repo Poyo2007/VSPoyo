@@ -21,7 +21,6 @@ class CharSelectState extends MusicBeatState{
     var charSelect:FlxSprite;
     public static var curSelected:Int = 0;
     override function create(){
-        FlxG.sound.playMusic(Paths.music('tea-time'));
         leBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         leBG.color = FlxColor.BLUE;
         leBG.screenCenter();
@@ -138,6 +137,7 @@ class CharSelectState extends MusicBeatState{
         new FlxTimer().start(1.5, function(tmr:FlxTimer)
             {
         MusicBeatState.switchState(new PlayState());
+        FlxG.sound.music.volume = 0;
             });
         }
         if (controls.BACK){

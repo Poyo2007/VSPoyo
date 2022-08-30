@@ -379,7 +379,7 @@ class FreeplayState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new CharSelectState());
 			}
 
-			FlxG.sound.music.volume = 0;
+			//FlxG.sound.music.volume = 0;
 					
 			destroyFreeplayVocals();
 		}
