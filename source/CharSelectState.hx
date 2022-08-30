@@ -19,47 +19,50 @@ class CharSelectState extends MusicBeatState{
     var poyo:FlxSprite;
     var selectedText:FlxText;
     var charSelect:FlxSprite;
+    
+    private var grpChars:FlxTypedGroup<Character>;
+    
     public static var curSelected:Int = 0;
+    
+    var characterArray:Array<String> = [
+  		'new bf',
+  		'bf',
+  		'poyo player',
+  		'old poyo player'
+  	];
+
     override function create(){
         leBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         leBG.color = FlxColor.BLUE;
         leBG.screenCenter();
         add(leBG);
- 
-        newbfpoyo = new FlxSprite(0, 0).loadGraphic(Paths.image('characters/newbfpoyo'));
-        newbfpoyo.frames = Paths.getSparrowAtlas('characters/newbfpoyo');
-        newbfpoyo.animation.addByPrefix('idle', 'BF idle dance', 24, true);
-        newbfpoyo.animation.addByPrefix('hey', 'BF NOTE UP', 24, true);
-        newbfpoyo.animation.play('idle');
-        newbfpoyo.screenCenter();
-        add(newbfpoyo);
-
-        bfphantom = new FlxSprite(0, 0).loadGraphic(Paths.image('characters/BOYFRIEND'));
-        bfphantom.frames = Paths.getSparrowAtlas('characters/BOYFRIEND');
-        bfphantom.animation.addByPrefix('idle', 'BF idle dance', 24, true);
-        bfphantom.animation.addByPrefix('hey', 'BF HEY!!', 24, true);
-        bfphantom.animation.play('idle');
-        bfphantom.screenCenter();
-        add(bfphantom);
-
-        poyo = new FlxSprite(450, 300).loadGraphic(Paths.image('characters/poyo anims'));
-        poyo.frames = Paths.getSparrowAtlas('characters/poyo anims');
-        poyo.animation.addByPrefix('idle', 'idle instance 1', 24, true);
-        poyo.animation.addByPrefix('hey', 'up instance 1', 24, true);
-        poyo.animation.addByPrefix('singUP', 'up instance 1', 24, true);
-        poyo.scale.set(2, 2);
-        poyo.screenCenter();
-        poyo.animation.play('idle');
-        add(poyo);
         
-        oldpoyo = new FlxSprite(450, 300).loadGraphic(Paths.image('characters/poyolmao'));
-        oldpoyo.frames = Paths.getSparrowAtlas('characters/poyolmao');
-        oldpoyo.animation.addByPrefix('idle', 'Idle', 24, true);
-        oldpoyo.animation.addByPrefix('hey', 'Up', 24, true);
-        oldpoyo.animation.addByPrefix('singUP', 'Up', 24, true);
-        oldpoyo.screenCenter();
-        oldpoyo.animation.play('idle');
-        add(oldpoyo);
+        switch(SONG.player1)
+        {
+          case 'new bf':
+            curSelected = 0;
+          case 'bf':
+            curSelected = 1;
+          case 'poyo':
+            curSelected = 2;
+          case 'old poyo':
+            curSelected = 3;
+          default:
+            curSelected = 0;
+        }
+ 
+        grpChars = new FlxTypedGroup<Character>();
+		    add(grpChars);
+        for (i in 0...characterArray.length)
+        {
+          var char:Character = new Character((145 * i), 0, characterArray[i], true);
+      		char.screenCenter(Y);
+      		char.setGraphicSize(Std.int(char.width * 0.75));
+      		char.updateHitbox();
+      		char.dance();
+      		grpChars.insert(1, char);
+        }
+        if(curSelected >= characterArray.length) curSelected = 0;
 		selectedText = new FlxText(0, 10, charsArray[0], 24);
 		selectedText.alpha = 0.5;
 		selectedText.x = (FlxG.width) - (selectedText.width) - 25;
@@ -76,39 +79,79 @@ class CharSelectState extends MusicBeatState{
         super.create();
     }
 
-    function changeSelection(change:Int = 0){
-        curSelected += change;
+    function changeSelection(change:Int = 0, playSound:Bool = true)
+	{
+		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
-        if (curSelected < 0)
-			curSelected = charsArray.length - 1;
-		if (curSelected >= charsArray.length)
+		curSelected += change;
+
+		if (curSelected < 0)
+			curSelected = characterArray.length - 1;
+		if (curSelected >= characterArray.length)
 			curSelected = 0;
 
-        selectedText.text = charsArray[curSelected];
+		// selector.y = (70 * curSelected) + 30;
 
-        switch(curSelected){
-        case 0:
-        newbfpoyo.visible = true;
-        bfphantom.visible = false;
-        poyo.visible = false;
-        oldpoyo.visible = false;
-        case 1:
-        newbfpoyo.visible = false;
-        bfphantom.visible = true;
-        poyo.visible = false;
-        oldpoyo.visible = false;
-        case 2:
-        newbfpoyo.visible = false;
-        bfphantom.visible = false;
-        poyo.visible = true;
-        oldpoyo.visible = false;
-        case 3:
-        newbfpoyo.visible = false;
-        bfphantom.visible = false;
-        poyo.visible = false;
-        oldpoyo.visible = true;
-        }
-    }
+		var bullShit:Int = 0;
+
+		for (item in grpChars.members)
+		
+			item.targetY = bullShit - curSelected;
+			bullShit++;
+
+			item.alpha = 0.6;
+			// item.setGraphicSize(Std.int(item.width * 0.8));
+
+			if (item.targetY == 0)
+			{
+				item.alpha = 1;
+				// item.setGraphicSize(Std.int(item.width));
+			}
+		}
+		
+		Paths.currentModDirectory = songs[curSelected].folder;
+		PlayState.storyWeek = songs[curSelected].week;
+
+		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
+		var diffStr:String = WeekData.getCurrentWeek().difficulties;
+		if(diffStr != null) diffStr = diffStr.trim(); //Fuck you HTML5
+
+		if(diffStr != null && diffStr.length > 0)
+		{
+			var diffs:Array<String> = diffStr.split(',');
+			var i:Int = diffs.length - 1;
+			while (i > 0)
+			{
+				if(diffs[i] != null)
+				{
+					diffs[i] = diffs[i].trim();
+					if(diffs[i].length < 1) diffs.remove(diffs[i]);
+				}
+				--i;
+			}
+
+			if(diffs.length > 0 && diffs[0].length > 0)
+			{
+				CoolUtil.difficulties = diffs;
+			}
+		}
+		
+		if(CoolUtil.difficulties.contains(CoolUtil.defaultDifficulty))
+		{
+			curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(CoolUtil.defaultDifficulty)));
+		}
+		else
+		{
+			curDifficulty = 0;
+		}
+
+		var newPos:Int = CoolUtil.difficulties.indexOf(lastDifficultyName);
+		//trace('Pos of ' + lastDifficultyName + ' is ' + newPos);
+		if(newPos > -1)
+		{
+			curDifficulty = newPos;
+		}
+	}
 
     override function update(elapsed:Float){
         if (controls.UI_LEFT_P){
@@ -128,10 +171,10 @@ class CharSelectState extends MusicBeatState{
         case 1:
         FlxFlicker.flicker(bfphantom, 1.5, 0.15, false);
         bfphantom.animation.play('hey');
-        case 1:
+        case 2:
         FlxFlicker.flicker(poyo, 1.5, 0.15, false);
         poyo.animation.play('hey');
-        case 1:
+        case 3:
         FlxFlicker.flicker(oldpoyo, 1.5, 0.15, false);
         oldpoyo.animation.play('hey');
         }

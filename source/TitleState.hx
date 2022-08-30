@@ -62,6 +62,8 @@ class TitleState extends MusicBeatState
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
+	
+	var leBG:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
@@ -333,10 +335,10 @@ class TitleState extends MusicBeatState
 		#else
 
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('PoyoTitle'));
+		/*var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('PoyoTitle'));
 		logo.screenCenter();
 		logo.antialiasing = ClientPrefs.globalAntialiasing;
-		add(logo);
+		add(logo);*/
 
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
 		#end
@@ -346,6 +348,10 @@ class TitleState extends MusicBeatState
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
 		// titleText.screenCenter(X);
+		
+		leBG = new FlxSprite().loadGraphic(Paths.image('PoyoTitle'));
+    leBG.screenCenter();
+    add(leBG);
 		add(titleText);
 		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
 		// FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
