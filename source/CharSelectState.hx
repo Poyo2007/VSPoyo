@@ -47,7 +47,7 @@ class CharSelectState extends MusicBeatState{
         poyo.animation.addByPrefix('idle', 'idle instance 1', 24, true);
         poyo.animation.addByPrefix('hey', 'up instance 1', 24, true);
         poyo.animation.addByPrefix('singUP', 'up instance 1', 24, true);
-        poyo.scale.set(2, 2)
+        poyo.scale.set(2, 2);
         poyo.screenCenter();
         poyo.animation.play('idle');
         add(poyo);
