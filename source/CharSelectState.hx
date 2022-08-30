@@ -70,7 +70,7 @@ class CharSelectState extends MusicBeatState{
         changeSelection();
 
         #if android
-    		  addVirtualPad(UP_DOWN, A_B_C_X_Y_Z);
+    		  addVirtualPad(LEFT_RIGHT, A_B);
     		#end
 
         super.create();
