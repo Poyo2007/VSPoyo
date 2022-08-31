@@ -113,9 +113,9 @@ class CharSelectState extends MusicBeatState{
         for (i in 0...characterArray.length)
         {
           if (curSelected == i)
-            item.alpha = 1;
+            characterArray[i].alpha = 1;
           else
-            item.alpha = 0.5;
+            characterArray[i] = 0.5;
     		}
 
         super.update(elapsed);
