@@ -31,12 +31,6 @@ class CharSelectState extends MusicBeatState{
     private var grpChars:FlxTypedGroup<Character>;
     
     public static var curSelected:Int = 0;
-    var characterArray:Array<String> = [
-      //none cause the json finna add it
-  	];
-    var charNameArray:Array<String> = [
-      //none
-    ];
     
 
     override function create(){
@@ -49,7 +43,7 @@ class CharSelectState extends MusicBeatState{
   			
   			for (name in 0...CharJSON.charNames.length)
   			{
-  			  charNameArray.push(CharJSON.charNames.name)
+  			  charNameArray.push(CharJSON.charNames.name);
   			}
 
         leBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
@@ -65,9 +59,9 @@ class CharSelectState extends MusicBeatState{
           var char:Character = new Character(0, 0, CharJSON.characters[i][0], true);
       		char.updateHitbox();
       		char.screenCenter();
-      		char.x += CharJSON.characters[i][1]
-      		char.y += CharJSON.characters[i][2]
-      		char.scale.set(CharJSON.characters[i][3], CharJSON.characters[i][4])
+      		char.x += CharJSON.characters[i][1];
+      		char.y += CharJSON.characters[i][2];
+      		char.scale.set(CharJSON.characters[i][3], CharJSON.characters[i][4]);
       		char.ID = i;
       		char.dance();
       		grpChars.insert(1, char);
