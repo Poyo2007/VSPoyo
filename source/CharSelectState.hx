@@ -102,9 +102,9 @@ class CharSelectState extends MusicBeatState{
         grpChars.forEach(function(char:Character)
 				{
 		      if (curSelected != char.ID)
-		        char.alpha = 0
+		        char.alpha = 0;
 		      else
-		        char.alpha = 1
+		        char.alpha = 1;
 				}
         super.update(elapsed);
     }
