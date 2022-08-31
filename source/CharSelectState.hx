@@ -110,9 +110,9 @@ class CharSelectState extends MusicBeatState{
         MusicBeatState.switchState(new FreeplayState());
         }
         
-        for (item in grpChars.members)
+        for (i in 0...characterArray.length)
         {
-          if (curSelected == item)
+          if (curSelected == i)
             item.alpha = 1;
           else
             item.alpha = 0.5;
