@@ -83,13 +83,13 @@ class CharSelectState extends MusicBeatState{
   		for (item in grpChars.members)
   		{
   		
-  			item.targetX = bullShit - curSelected;
+  			item.targetY = bullShit - curSelected;
   			bullShit++;
   
   			item.alpha = 0.6;
   			// item.setGraphicSize(Std.int(item.width * 0.8));
   
-  			if (item.targetX == 0)
+  			if (item.targetY == 0)
   			{
   				item.alpha = 1;
   				// item.setGraphicSize(Std.int(item.width));
