@@ -598,7 +598,7 @@ class PlayState extends MusicBeatState
     if (isStoryMode)
 		  boyfriend = new Boyfriend(0, 0, SONG.player1);
 		else
-		  boyfriend = new Boyfriend(0, 0, freeplayCharacter;
+		  boyfriend = new Boyfriend(0, 0, freeplayCharacter);
 
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
