@@ -31,6 +31,7 @@ class CharSelectState extends MusicBeatState{
     private var grpChars:FlxTypedGroup<Character>;
     
     public static var curSelected:Int = 0;
+    public static var CharacterChosen:String = 'bf';
     
 
     override function create(){
@@ -100,6 +101,7 @@ class CharSelectState extends MusicBeatState{
         FlxG.sound.play(Paths.sound('scrollMenu'));
         }
         if (controls.ACCEPT){
+        CharacterChosen = CharJSON.characters[curSelected][0]
         MusicBeatState.switchState(new PlayState());
         FlxG.sound.music.volume = 0;
         }
