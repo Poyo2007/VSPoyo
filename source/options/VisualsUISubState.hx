@@ -34,6 +34,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		title = 'Visuals and UI';
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
 
+		var option:Option = new Option('Free Play Character Select',
+			"If checked, you're able to choose a character to play as in Free Play.\nIf you want to add a character, go to assets/images/charSelect.json",
+			'charSelect',
+			'bool',
+			false);
+		addOption(option);
+
 		var option:Option = new Option('Note Splashes',
 			"If unchecked, hitting \"Sick!\" notes won't show particles.",
 			'noteSplashes',
