@@ -64,6 +64,10 @@ import sys.FileSystem;
 #end
 
 using StringTools;
+typedef CharSelData = {
+	var characters:Array<Dynamic>;
+	var charNames:Array<String>;
+}
 
 class PlayState extends MusicBeatState
 {
@@ -273,6 +277,8 @@ class PlayState extends MusicBeatState
 	public var boyfriendCameraOffset:Array<Float> = null;
 	public var opponentCameraOffset:Array<Float> = null;
 	public var girlfriendCameraOffset:Array<Float> = null;
+	
+	var CharJSON:CharSelData;
 
 	#if desktop
 	// Discord RPC variables
@@ -304,6 +310,7 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		Paths.clearStoredMemory();
+		CharJSON = Json.parse(Paths.getTextFromFile('images/charSelect.json'));
 
 		// for lua
 		instance = this;
@@ -598,17 +605,7 @@ class PlayState extends MusicBeatState
     if (isStoryMode)
 		  boyfriend = new Boyfriend(0, 0, SONG.player1);
 		else
-		  switch(charSelection)
-		  {
-		    case 0:
-		      boyfriend = new Boyfriend(0, 0, 'new bf');
-		    case 1:
-		      boyfriend = new Boyfriend(0, 0, 'bf');
-		    case 2:
-		      boyfriend = new Boyfriend(0, 0, 'poyo player');
-		    case 3: 
-		      boyfriend = new Boyfriend(0, 0, 'old poyo player');
-		  }
+		  boyfriend = new Boyfriend(0, 0, CharJSON.characters[charSelection][0]);
 
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
