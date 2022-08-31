@@ -35,16 +35,6 @@ class CharSelectState extends MusicBeatState{
 
     override function create(){
         CharJSON = Json.parse(Paths.getTextFromFile('images/charSelect.json'));
-        
-        for (char in 0...CharJSON.characters.length)
-  			{
-  				characterArray.push(CharJSON.characters[char][0]);
-  			}
-  			
-  			for (name in 0...CharJSON.charNames.length)
-  			{
-  			  charNameArray.push(CharJSON.charNames.name);
-  			}
 
         leBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         leBG.color = FlxColor.BLUE;
@@ -67,8 +57,8 @@ class CharSelectState extends MusicBeatState{
       		grpChars.insert(1, char);
         }
 
-        if(curSelected >= characterArray.length) curSelected = 0;
-      	selectedText = new FlxText(0, 10, charNameArray[0], 24);
+        if(curSelected >= CharJSON.characters.length) curSelected = 0;
+      	selectedText = new FlxText(0, 10, CharJSON.charNames[0], 24);
       	selectedText.alpha = 0.5;
       	selectedText.x = (FlxG.width) - (selectedText.width) - 25;
         add(selectedText);
@@ -91,8 +81,8 @@ class CharSelectState extends MusicBeatState{
   		curSelected += change;
   
   		if (curSelected < 0)
-  			curSelected = characterArray.length - 1;
-  		if (curSelected >= characterArray.length)
+  			curSelected = CharJSON.characters.length - 1;
+  		if (curSelected >= CharJSON.characters.length)
   			curSelected = 0;
   		
   		selectedText.text = CharJSON.charNames[curSelected];
