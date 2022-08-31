@@ -47,13 +47,23 @@ class CharSelectState extends MusicBeatState{
       		char.ID = i;
       		char.dance();
       		grpChars.insert(1, char);
-        }
+      		
+      		switch(i)
+      		  case 0:
+      		    char.x += 200;
+      		    char.y -= 100;
+      		  case 2:
+      		    char.scale.set(0.5, 0.5)
+      		    char.screenCenter()
+      		  case 3:
+      		    char.y -= 500
+ 
         if(curSelected >= characterArray.length) curSelected = 0;
       	selectedText = new FlxText(0, 10, charsArray[0], 24);
       	selectedText.alpha = 0.5;
       	selectedText.x = (FlxG.width) - (selectedText.width) - 25;
         add(selectedText);
-        charSelect = new Alphabet(0, 50, "Select Your Character", true, false);
+        charSelect = new Alphabet(0, 50, "Character Select", true, false);
         charSelect.offset.x -= 150;
         add(charSelect);
         changeSelection();
