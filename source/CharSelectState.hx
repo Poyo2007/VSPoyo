@@ -50,13 +50,13 @@ class CharSelectState extends MusicBeatState{
       		switch (i)
       		{
       		  case 0:
-      		    char.x = 0
+      		    char.x = 0;
       		  case 1:
-      		    char.x = 200
+      		    char.x = 200;
       		  case 2:
-      		    char.x = 400
+      		    char.x = 400;
       		  case 3:
-      		    char.x = 600
+      		    char.x = 600;
       		}
         }
         if(curSelected >= characterArray.length) curSelected = 0;
