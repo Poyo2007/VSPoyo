@@ -105,7 +105,7 @@ class CharSelectState extends MusicBeatState{
 		        char.alpha = 0;
 		      else
 		        char.alpha = 1;
-				}
+				}):
         super.update(elapsed);
     }
 }
