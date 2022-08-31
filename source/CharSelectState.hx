@@ -41,11 +41,23 @@ class CharSelectState extends MusicBeatState{
 		    add(grpChars);
         for (i in 0...characterArray.length)
         {
-          var char:Character = new Character((300 * i), 0, characterArray[i], true);
+          var char:Character = new Character(0, 0, characterArray[i], true);
       		char.screenCenter(Y);
       		char.updateHitbox();
       		char.dance();
       		grpChars.insert(1, char);
+      		
+      		switch (i)
+      		{
+      		  case 0:
+      		    char.x = 0
+      		  case 1:
+      		    char.x = 200
+      		  case 2:
+      		    char.x = 400
+      		  case 3:
+      		    char.x = 600
+      		}
         }
         if(curSelected >= characterArray.length) curSelected = 0;
       	selectedText = new FlxText(0, 10, charsArray[0], 24);
@@ -99,12 +111,13 @@ class CharSelectState extends MusicBeatState{
         }
         
         for (item in grpChars.members)
-      		{
-            if (item == characterArray[curSelected])
-              item.alpha = 1
-            else
-              item.alpha = 0.5
-      		}
+        {
+          if (curSelected == item)
+            item.alpha = 1
+          else
+            item.alpha = 0.5
+    		}
+
         super.update(elapsed);
     }
 }
