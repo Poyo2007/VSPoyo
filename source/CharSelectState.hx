@@ -42,22 +42,11 @@ class CharSelectState extends MusicBeatState{
         for (i in 0...characterArray.length)
         {
           var char:Character = new Character(0, 0, characterArray[i], true);
-      		char.screenCenter(Y);
       		char.updateHitbox();
+      		char.screenCenter();
+      		char.ID = i;
       		char.dance();
       		grpChars.insert(1, char);
-      		
-      		switch (i)
-      		{
-      		  case 0:
-      		    char.x = 0;
-      		  case 1:
-      		    char.x = 200;
-      		  case 2:
-      		    char.x = 400;
-      		  case 3:
-      		    char.x = 600;
-      		}
         }
         if(curSelected >= characterArray.length) curSelected = 0;
       	selectedText = new FlxText(0, 10, charsArray[0], 24);
@@ -109,15 +98,14 @@ class CharSelectState extends MusicBeatState{
         FlxG.sound.play(Paths.sound('cancelMenu'));
         MusicBeatState.switchState(new FreeplayState());
         }
-        
-        for (i in 0...characterArray.length)
-        {
-          if (curSelected == i)
-            characterArray[i].alpha = 1;
-          else
-            characterArray[i] = 0.5;
-    		}
-
+ 
+        grpChars.forEach(function(char:Character)
+				{
+		      if (curSelected != char.ID)
+		        char.alpha = 0
+		      else
+		        char.alpha = 1
+				}
         super.update(elapsed);
     }
 }
