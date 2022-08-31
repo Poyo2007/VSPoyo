@@ -1,0 +1,38 @@
+{
+  "characters": [
+    [
+      "new bf",
+      -200,
+      -100,
+      1,
+      1
+    ],
+    [
+      "bf",
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      "poyo player",
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      "old poyo player",
+      0,
+      0,
+      1,
+      1
+    ]
+  ],
+  "charNames": [
+    "Boyfriend (FNF: VS POYO)",
+    "Boyfriend (Base Game)",
+    "Poyo",
+    "Poyo (OLD)"
+  ]
+}

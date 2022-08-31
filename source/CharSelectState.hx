@@ -8,10 +8,16 @@ import flixel.text.FlxText;
 import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
 import flixel.effects.FlxFlicker;
+import haxe.Json;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
+using StringTools;
+typedef charJSON = {
+	var characters:Array<Dynamic>;
+	var charNames:Array<String>;
+}
+
 class CharSelectState extends MusicBeatState{
-    var charsArray:Array<String> = ['Boyfriend (VS Poyo)', 'Boyfriend (PhantomArcade)', 'Poyo', 'Poyo (DEMO 1-2)'];
     var leBG:FlxSprite;
     var newbfpoyo:FlxSprite;
     var bfphantom:FlxSprite;
@@ -23,43 +29,50 @@ class CharSelectState extends MusicBeatState{
     private var grpChars:FlxTypedGroup<Character>;
     
     public static var curSelected:Int = 0;
-    
     var characterArray:Array<String> = [
-  		'new bf',
-  		'bf',
-  		'poyo player',
-  		'old poyo player'
+      //none cause the json finna add it
   	];
+    var charNameArray:Array<String> = [
+      //none
+    ];
+    
 
     override function create(){
+        charJSON = Json.parse(Paths.getTextFromFile('images/charSelect.json'));
+        
+        for (char in 0...charJSON.characters.length)
+  			{
+  				characterArray.push(charJSON.characters[char][0]);
+  			}
+  			
+  			for (name in 0...charJSON.charNames.length)
+  			{
+  			  charNameArray.push(charJSON.charNames.name)
+  			}
+
         leBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         leBG.color = FlxColor.BLUE;
         leBG.screenCenter();
         add(leBG);
+        
 
         grpChars = new FlxTypedGroup<Character>();
 		    add(grpChars);
-        for (i in 0...characterArray.length)
+        for (i in 0...charJSON.characters.length)
         {
-          var char:Character = new Character(0, 0, characterArray[i], true);
+          var char:Character = new Character(0, 0, charJSON.characters[i][0], true);
       		char.updateHitbox();
       		char.screenCenter();
+      		char.x += charJSON.characters[i][1]
+      		char.y += charJSON.characters[i][2]
+      		char.scale.set(charJSON.characters[i][3], charJSON.characters[i][4])
       		char.ID = i;
       		char.dance();
       		grpChars.insert(1, char);
-      		
-      		switch(i)
-      		  case 0:
-      		    char.x += 200;
-      		    char.y -= 100;
-      		  case 2:
-      		    char.scale.set(0.5, 0.5)
-      		    char.screenCenter()
-      		  case 3:
-      		    char.y -= 500
- 
+        }
+
         if(curSelected >= characterArray.length) curSelected = 0;
-      	selectedText = new FlxText(0, 10, charsArray[0], 24);
+      	selectedText = new FlxText(0, 10, charNameArray[0], 24);
       	selectedText.alpha = 0.5;
       	selectedText.x = (FlxG.width) - (selectedText.width) - 25;
         add(selectedText);
@@ -86,7 +99,7 @@ class CharSelectState extends MusicBeatState{
   		if (curSelected >= characterArray.length)
   			curSelected = 0;
   		
-  		selectedText.text = charsArray[curSelected];
+  		selectedText.text = charJSON.charNames[curSelected];
   
   		// selector.y = (70 * curSelected) + 30;
   	}
