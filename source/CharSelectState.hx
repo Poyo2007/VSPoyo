@@ -101,7 +101,7 @@ class CharSelectState extends MusicBeatState{
         FlxG.sound.play(Paths.sound('scrollMenu'));
         }
         if (controls.ACCEPT){
-        CharacterChosen = CharJSON.characters[curSelected][0]
+        CharacterChosen = CharJSON.characters[curSelected][0];
         MusicBeatState.switchState(new PlayState());
         FlxG.sound.music.volume = 0;
         }

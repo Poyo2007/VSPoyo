@@ -109,6 +109,7 @@ class PlayState extends MusicBeatState
 	public var GF_Y:Float = 130;
 	
 	public var charSelection:Int = CharSelectState.curSelected;
+	public var freeplayCharacter:String = CharSelectState.CharacterChosen;
 
 	public var songSpeedTween:FlxTween;
 	public var songSpeed(default, set):Float = 1;
@@ -272,8 +273,6 @@ class PlayState extends MusicBeatState
 	public var boyfriendCameraOffset:Array<Float> = null;
 	public var opponentCameraOffset:Array<Float> = null;
 	public var girlfriendCameraOffset:Array<Float> = null;
-	
-	var CharJSON:CharSelData;
 
 	#if desktop
 	// Discord RPC variables
@@ -305,7 +304,6 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		Paths.clearStoredMemory();
-		CharJSON = Json.parse(Paths.getTextFromFile('images/charSelect.json'));
 
 		// for lua
 		instance = this;
@@ -600,7 +598,7 @@ class PlayState extends MusicBeatState
     if (isStoryMode)
 		  boyfriend = new Boyfriend(0, 0, SONG.player1);
 		else
-		  boyfriend = new Boyfriend(0, 0, CharJSON.characters[charSelection][0]);
+		  boyfriend = new Boyfriend(0, 0, freeplayCharacter;
 
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
