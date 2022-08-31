@@ -12,7 +12,7 @@ import haxe.Json;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
 using StringTools;
-typedef charJSON = {
+typedef CharSelData = {
 	var characters:Array<Dynamic>;
 	var charNames:Array<String>;
 }
@@ -26,6 +26,8 @@ class CharSelectState extends MusicBeatState{
     var selectedText:FlxText;
     var charSelect:FlxSprite;
     
+    var CharJSON:CharSelData;
+    
     private var grpChars:FlxTypedGroup<Character>;
     
     public static var curSelected:Int = 0;
@@ -38,16 +40,16 @@ class CharSelectState extends MusicBeatState{
     
 
     override function create(){
-        charJSON = Json.parse(Paths.getTextFromFile('images/charSelect.json'));
+        CharJSON = Json.parse(Paths.getTextFromFile('images/charSelect.json'));
         
-        for (char in 0...charJSON.characters.length)
+        for (char in 0...CharJSON.characters.length)
   			{
-  				characterArray.push(charJSON.characters[char][0]);
+  				characterArray.push(CharJSON.characters[char][0]);
   			}
   			
-  			for (name in 0...charJSON.charNames.length)
+  			for (name in 0...CharJSON.charNames.length)
   			{
-  			  charNameArray.push(charJSON.charNames.name)
+  			  charNameArray.push(CharJSON.charNames.name)
   			}
 
         leBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
@@ -58,14 +60,14 @@ class CharSelectState extends MusicBeatState{
 
         grpChars = new FlxTypedGroup<Character>();
 		    add(grpChars);
-        for (i in 0...charJSON.characters.length)
+        for (i in 0...CharJSON.characters.length)
         {
-          var char:Character = new Character(0, 0, charJSON.characters[i][0], true);
+          var char:Character = new Character(0, 0, CharJSON.characters[i][0], true);
       		char.updateHitbox();
       		char.screenCenter();
-      		char.x += charJSON.characters[i][1]
-      		char.y += charJSON.characters[i][2]
-      		char.scale.set(charJSON.characters[i][3], charJSON.characters[i][4])
+      		char.x += CharJSON.characters[i][1]
+      		char.y += CharJSON.characters[i][2]
+      		char.scale.set(CharJSON.characters[i][3], CharJSON.characters[i][4])
       		char.ID = i;
       		char.dance();
       		grpChars.insert(1, char);
@@ -99,7 +101,7 @@ class CharSelectState extends MusicBeatState{
   		if (curSelected >= characterArray.length)
   			curSelected = 0;
   		
-  		selectedText.text = charJSON.charNames[curSelected];
+  		selectedText.text = CharJSON.charNames[curSelected];
   
   		// selector.y = (70 * curSelected) + 30;
   	}
