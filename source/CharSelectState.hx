@@ -36,21 +36,7 @@ class CharSelectState extends MusicBeatState{
         leBG.color = FlxColor.BLUE;
         leBG.screenCenter();
         add(leBG);
-        
-        switch(SONG.player1)
-        {
-          case 'new bf':
-            curSelected = 0;
-          case 'bf':
-            curSelected = 1;
-          case 'poyo':
-            curSelected = 2;
-          case 'old poyo':
-            curSelected = 3;
-          default:
-            curSelected = 0;
-        }
- 
+
         grpChars = new FlxTypedGroup<Character>();
 		    add(grpChars);
         for (i in 0...characterArray.length)
@@ -63,9 +49,9 @@ class CharSelectState extends MusicBeatState{
       		grpChars.insert(1, char);
         }
         if(curSelected >= characterArray.length) curSelected = 0;
-		selectedText = new FlxText(0, 10, charsArray[0], 24);
-		selectedText.alpha = 0.5;
-		selectedText.x = (FlxG.width) - (selectedText.width) - 25;
+      	selectedText = new FlxText(0, 10, charsArray[0], 24);
+      	selectedText.alpha = 0.5;
+      	selectedText.x = (FlxG.width) - (selectedText.width) - 25;
         add(selectedText);
         charSelect = new Alphabet(0, 50, "Select Your Character", true, false);
         charSelect.offset.x -= 150;
@@ -80,36 +66,36 @@ class CharSelectState extends MusicBeatState{
     }
 
     function changeSelection(change:Int = 0, playSound:Bool = true)
-	{
-		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-
-		curSelected += change;
-
-		if (curSelected < 0)
-			curSelected = characterArray.length - 1;
-		if (curSelected >= characterArray.length)
-			curSelected = 0;
-
-		// selector.y = (70 * curSelected) + 30;
-
-		var bullShit:Int = 0;
-
-		for (item in grpChars.members)
-		{
-		
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
-			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
-			}
-		}
-	}
+  	{
+  		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+  
+  		curSelected += change;
+  
+  		if (curSelected < 0)
+  			curSelected = characterArray.length - 1;
+  		if (curSelected >= characterArray.length)
+  			curSelected = 0;
+  
+  		// selector.y = (70 * curSelected) + 30;
+  
+  		var bullShit:Int = 0;
+  
+  		for (item in grpChars.members)
+  		{
+  		
+  			item.targetX = bullShit - curSelected;
+  			bullShit++;
+  
+  			item.alpha = 0.6;
+  			// item.setGraphicSize(Std.int(item.width * 0.8));
+  
+  			if (item.targetX == 0)
+  			{
+  				item.alpha = 1;
+  				// item.setGraphicSize(Std.int(item.width));
+  			}
+  		}
+  	}
 
     override function update(elapsed:Float){
         if (controls.UI_LEFT_P){
@@ -120,10 +106,10 @@ class CharSelectState extends MusicBeatState{
         changeSelection(1);
         FlxG.sound.play(Paths.sound('scrollMenu'));
         }
-        
         if (controls.ACCEPT){
         MusicBeatState.switchState(new PlayState());
         FlxG.sound.music.volume = 0;
+        }
         if (controls.BACK){
         FlxG.sound.play(Paths.sound('cancelMenu'));
         MusicBeatState.switchState(new FreeplayState());

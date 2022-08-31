@@ -109,7 +109,7 @@ class FreeplayState extends MusicBeatState
 		{
 			var songText:Alphabet = new Alphabet((150 * i) + 50, 0, songs[i].songName, true, false);
 			songText.isMenuItemCenter = true;
-			songText.targetY = i;
+			songText.targetX = i;
 			grpSongs.add(songText);
 
 			if (songText.width > 980)
@@ -446,13 +446,13 @@ class FreeplayState extends MusicBeatState
 
 		for (item in grpSongs.members)
 		{
-			item.targetY = bullShit - curSelected;
+			item.targetX = bullShit - curSelected;
 			bullShit++;
 
 			item.alpha = 0.6;
 			// item.setGraphicSize(Std.int(item.width * 0.8));
 
-			if (item.targetY == 0)
+			if (item.targetX == 0)
 			{
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
