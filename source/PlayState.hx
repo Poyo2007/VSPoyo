@@ -64,11 +64,6 @@ import sys.FileSystem;
 #end
 
 using StringTools;
-typedef CharSelData = {
-	var characters:Array<Dynamic>;
-	var charNames:Array<String>;
-}
-
 class PlayState extends MusicBeatState
 {
 	public static var STRUM_X = 42;
