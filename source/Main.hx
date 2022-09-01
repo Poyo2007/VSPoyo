@@ -82,7 +82,7 @@ class Main extends Sprite
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
-		Lib.current.stage.fullScreenSourceRect = new Rectangle(0, 0, 1280, 720)
+		Lib.current.stage.fullScreenSourceRect = new Rectangle(0, 0, 1280, 720);
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
