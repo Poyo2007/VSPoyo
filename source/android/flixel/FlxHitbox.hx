@@ -43,7 +43,7 @@ class FlxHitbox extends FlxSpriteGroup
 	{
 		var hint:FlxHitboxHint = new FlxHitboxHint(x, y, frames);
 		hint.antialiasing = ClientPrefs.globalAntialiasing;
-		hint.setGraphicSize(FlxG.width / 4, FlxG.height);
+		hint.setGraphicSize(Std.int(FlxG.width / 4), FlxG.height);
 		hint.updateHitbox();
 		hint.solid = false;
 		hint.immovable = true;
