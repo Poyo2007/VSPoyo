@@ -1,5 +1,6 @@
 package android.flixel;
 
+import flixel.FlxG;
 import flixel.util.FlxDestroyUtil;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.FlxGraphic;
@@ -11,6 +12,7 @@ import flixel.util.FlxColor;
 import flixel.FlxSprite;
 
 // Mofifications by saw (m.a. jigsaw)
+// VS Poyo hitbox mod by Poyo
 class FlxHitbox extends FlxSpriteGroup 
 {
 	public var hitbox:FlxSpriteGroup;
@@ -32,15 +34,31 @@ class FlxHitbox extends FlxSpriteGroup
 		buttonRight = new FlxButton(0, 0);
 
 		hitbox.add(add(buttonLeft = createHitbox(0, 0, 'left', 0xFFFF00FF)));
-		hitbox.add(add(buttonDown = createHitbox(320, 0, 'down', 0xFF00FFFF)));
-		hitbox.add(add(buttonUp = createHitbox(640, 0, 'up', 0xFF00FF00)));
-		hitbox.add(add(buttonRight = createHitbox(960, 0, 'right', 0xFFFF0000)));
+		hitbox.add(add(buttonDown = createHitbox(FlxG.width / 4, 0, 'down', 0xFF00FFFF)));
+		hitbox.add(add(buttonUp = createHitbox(FlxG.width / 2, 0, 'up', 0xFF00FF00)));
+		hitbox.add(add(buttonRight = createHitbox((FlxG.width / 2) + (FlxG.width / 4), 0, 'right', 0xFFFF0000)));
 	}
 
 	public function createHitbox(x:Float = 0, y:Float = 0, frames:String, ?color:Int):FlxButton
 	{
 		var hint:FlxHitboxHint = new FlxHitboxHint(x, y, frames);
 		hint.antialiasing = ClientPrefs.globalAntialiasing;
+		hint.setGraphicSize(FlxG.width / 4, FlxG.height);
+		hint.updateHitbox();
+		hint.solid = false;
+		hint.immovable = true;
+		hint.alpha = 0.1;
+		hint.scrollFactor.set();
+		hint.onDown.callback = function()
+		{
+			hint.alpha = 1;
+		}
+		hint.onUp.callback = function()
+		{
+		  hint.alpha = 0.1;
+		}
+		hint.onOver.callback = hint.onDown.callback;
+		hint.onOut.callback = hint.onUp.callback;
 		return hint;
 	}
 
