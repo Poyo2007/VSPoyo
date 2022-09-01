@@ -33,7 +33,7 @@ class Main extends Sprite
 	{
 		super();
 
-		SUtil.gameCrashCheck();
+		SUtil.uncaughtErrorHandler();
 
 		if (stage != null)
 		{
@@ -69,7 +69,7 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
-		SUtil.doTheCheck();
+		SUtil.check();
 
 		#if !debug
 		initialState = TitleState;
@@ -81,7 +81,7 @@ class Main extends Sprite
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
-		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
+		Lib.current.stage.scaleMode = StageScaleMode.EXACT_FIT;
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
