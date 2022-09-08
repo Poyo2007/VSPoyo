@@ -1,20 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="Poyo.png"><SubTexture name="Poyo Idle0000" x="610" y="1134" width="274" height="541" frameX="-168" frameY="-62" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Idle0001" x="1514" y="549" width="264" height="546" frameX="-173" frameY="-57" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Idle0002" x="1262" y="0" width="252" height="553" frameX="-179" frameY="-50" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Idle0003" x="328" y="571" width="252" height="559" frameX="-179" frameY="-44" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Idle0004" x="679" y="0" width="252" height="565" frameX="-179" frameY="-38" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Down0000" x="1818" y="0" width="284" height="462" frameX="-158" frameY="-139" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Down0001" x="1469" y="1134" width="281" height="472" frameX="-160" frameY="-129" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Down0002" x="1193" y="1134" width="276" height="484" frameX="-164" frameY="-117" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Left0000" x="0" y="1134" width="308" height="545" frameX="-123" frameY="-52" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Left0001" x="1514" y="0" width="304" height="549" frameX="-127" frameY="-48" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Left0002" x="580" y="571" width="300" height="555" frameX="-131" frameY="-42" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Right0000" x="884" y="1134" width="309" height="534" frameX="-143" frameY="-68" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Right0001" x="308" y="1134" width="302" height="543" frameX="-141" frameY="-59" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Right0002" x="880" y="571" width="295" height="555" frameX="-140" frameY="-47" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Up0000" x="0" y="0" width="348" height="571" frameX="-83" frameY="-29" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Up0001" x="348" y="0" width="331" height="567" frameX="-103" frameY="-34" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Up0002" x="931" y="0" width="331" height="563" frameX="-121" frameY="-41" frameWidth="609" frameHeight="609" />
-<SubTexture name="Poyo Up0003" x="0" y="571" width="328" height="563" frameX="-114" frameY="-38" frameWidth="609" frameHeight="609" />
+<TextureAtlas imagePath="poyo.png">
+<SubTexture name="poyo idle0000" x="1624" y="0" width="417" height="643" frameX="-254" frameY="-111" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo idle0001" x="1624" y="643" width="390" height="639" frameX="-266" frameY="-116" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo idle0002" x="351" y="714" width="372" height="658" frameX="-267" frameY="-98" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo idle0003" x="0" y="714" width="351" height="673" frameX="-273" frameY="-82" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo left0000" x="1127" y="714" width="434" height="650" frameX="-254" frameY="-105" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo left0001" x="723" y="714" width="404" height="655" frameX="-235" frameY="-100" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo down0000" x="490" y="1387" width="508" height="603" frameX="-147" frameY="-155" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo down0001" x="0" y="1387" width="490" height="630" frameX="-157" frameY="-130" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo up0000" x="0" y="0" width="394" height="714" frameX="-223" frameY="-44" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo up0001" x="394" y="0" width="401" height="693" frameX="-238" frameY="-65" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo right0000" x="795" y="0" width="423" height="689" frameX="-217" frameY="-73" frameWidth="840" frameHeight="840" />
+<SubTexture name="poyo right0001" x="1218" y="0" width="406" height="680" frameX="-218" frameY="-82" frameWidth="840" frameHeight="840" />
 </TextureAtlas>
