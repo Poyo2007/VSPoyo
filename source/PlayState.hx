@@ -304,6 +304,7 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		Paths.clearStoredMemory();
+		FlxGraphic.defaultPersist = false;
 
 		// for lua
 		instance = this;
@@ -1049,6 +1050,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 		CustomFadeTransition.nextCamera = camOther;
+		
+		openfl.system.System.gc();
+
+		FlxGraphic.defaultPersist = true;
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -1646,6 +1651,27 @@ class PlayState extends MusicBeatState
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
 	}
+	
+	// Remove refrences that can interfere with GC on switch state //
+    override function switchTo(nextState:FlxState):Bool
+    {
+        clearDefines();
+        return super.switchTo(nextState);
+    }
+
+    function clearDefines()
+    {
+        // Reset Defines //
+        flixel.graphics.FlxGraphic.defaultPersist = false;
+        FlxG.keys.preventDefaultKeys = []; // Prevents Arrow key input drops;
+        // Handle Refrences //
+        unspawnNotes = [];
+        notes.clear();
+        strumLineNotes.clear();
+        playerStrums.clear();
+        //characters.clear(); // yall don't have that :tro:
+    }
+
 
 	var debugNum:Int = 0;
 	private var noteTypeMap:Map<String, Bool> = new Map<String, Bool>();
